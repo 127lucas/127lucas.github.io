@@ -84,7 +84,7 @@ const langToggleBtn = document.getElementById('lang-toggle');   // 언어 전환
 /**
  * [API CONFIGURATION]
  */
-const API_BASE_URL = "http://43.202.11.116:8080";
+const API_BASE_URL = "https://bockji.duckdns.org";
 
 const INITIAL_STATE = {
     phase: "intake",
@@ -279,10 +279,17 @@ function addBotMessage(text, chat, state = null) {
         optionsHtml = '<div class="options" style="margin-left: 38px; flex-direction: column; align-items: flex-start;">';
         state.policies.forEach(policy => {
             optionsHtml += `
-                <div class="policy-card" onclick="sendMessage('${policy.name}')" style="background: white; border: 1px solid #ddd; border-radius: 12px; padding: 15px; margin-bottom: 10px; cursor: pointer; width: 80%; transition: 0.2s;">
-                    <div style="font-weight: bold; color: var(--primary-color); margin-bottom: 5px;">${policy.name}</div>
-                    <div style="font-size: 13px; color: #555; margin-bottom: 5px;">${policy.benefit}</div>
-                    <div style="font-size: 11px; color: #999;">${policy.scope}</div>
+                <div class="policy-card" style="background: white; border: 1px solid #ddd; border-radius: 12px; padding: 15px; margin-bottom: 10px; width: 80%; transition: 0.2s;">
+                    <div onclick="sendMessage('${policy.name}')" style="cursor: pointer;">
+                        <div style="font-weight: bold; color: var(--primary-color); margin-bottom: 5px;">${policy.name}</div>
+                        <div style="font-size: 13px; color: #555; margin-bottom: 5px;">${policy.benefit}</div>
+                        <div style="font-size: 11px; color: #999;">${policy.scope}</div>
+                    </div>
+                    ${policy.url ? `
+                        <a href="${policy.url}" target="_blank" style="font-size: 12px; color: #007bff; text-decoration: none; margin-top: 8px; display: inline-flex; align-items: center; gap: 4px; font-weight: 500;">
+                            상세보기 <span class="material-symbols-outlined" style="font-size: 14px;">open_in_new</span>
+                        </a>
+                    ` : ''}
                 </div>
             `;
         });

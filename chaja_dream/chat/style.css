@@ -248,9 +248,22 @@ nav a.active {
 
 /* [RESPONSIVE] 모바일 대응을 위한 미디어 쿼리 */
 @media (max-width: 768px) {
-    .navbar { padding: 10px 15px; }
-    nav a { margin-left: 12px; font-size: 13px; }
-    nav a:not(.active) { display: none; } /* 모바일에서 현재 페이지 외 메뉴 숨김 (필요시 햄버거 메뉴 구현) */
+    .navbar { 
+        padding: 10px 15px; 
+        flex-direction: column; /* 모바일에서 로고와 메뉴를 위아래로 배치하여 공간 확보 */
+        gap: 10px;
+    }
+    .header-left { width: 100%; justify-content: center; }
+    nav { 
+        width: 100%; 
+        display: flex; 
+        justify-content: center; 
+        gap: 10px;
+        overflow-x: auto; /* 메뉴가 많아질 경우 가로 스크롤 허용 */
+        padding-bottom: 5px;
+    }
+    nav a { margin-left: 0; font-size: 13px; white-space: nowrap; }
+    .lang-toggle { margin-left: 5px; }
     
     .sidebar {
         position: absolute;
@@ -263,7 +276,22 @@ nav a.active {
     /* 모바일에서는 기본적으로 접힌 상태 */
     .sidebar:not(.collapsed) { width: 240px; }
     .sidebar.collapsed { width: 0; border: none; }
-    .sidebar.collapsed::after { left: 20px; top: 20px; }
+    
+    /* 접혔을 때의 화살표 버튼을 더 눈에 띄게 수정 (초록색 원형 버튼 형태) */
+    .sidebar.collapsed::after { 
+        left: 25px; 
+        top: 20px; 
+        color: white;
+        background: var(--primary-color);
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        font-weight: bold;
+    }
 
     .chat-header { padding: 15px 20px; }
     .chat-window { padding: 20px 15px; }

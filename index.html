@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b0a">
+  <title>NIGHT MARKET — 심야 주식 시뮬레이터</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="room-glow"></div>
+  <main class="scene">
+    <div class="room-label"><span class="live-dot"></span> SEOUL · 02:17 AM <span class="room-divider">/</span> PRIVATE TERMINAL</div>
+    <section class="monitor-shell" aria-label="Night Market 투자 시뮬레이터">
+      <div class="monitor-top"><span class="monitor-brand">N<span>·</span>M</span><span>CRT DISPLAY / MODEL 1998</span><span class="monitor-lights"><i></i><i></i><i></i></span></div>
+      <div class="monitor-screen">
+        <div class="screen-reflection"></div>
+        <header class="topbar">
+          <a class="wordmark" href="#home" aria-label="홈"><span class="brand-mark">N<span>·</span>M</span><span>NIGHT<br>MARKET</span></a>
+          <div class="top-center"><span class="market-status"><i></i> MARKET OPEN</span><span id="round-label">ROUND 01 <b>/ 10</b></span></div>
+          <button class="icon-button settings-button" data-open="settings" aria-label="설정">⚙</button>
+        </header>
+        <div class="workspace">
+          <aside class="desktop-rail" aria-label="프로그램 바로가기">
+            <button class="desktop-icon active" data-open="trade"><span class="app-icon chart-icon">⌁</span><span>주식 거래</span></button>
+            <button class="desktop-icon" data-open="news"><span class="app-icon news-icon">▤</span><span>뉴스 피드</span></button>
+            <button class="desktop-icon" data-open="intel"><span class="app-icon intel-icon">◈</span><span>정보국</span></button>
+            <button class="desktop-icon" data-open="effects"><span class="app-icon effect-icon">✳</span><span>특수 효과</span></button>
+            <button class="desktop-icon" data-open="assets"><span class="app-icon asset-icon">▦</span><span>자산 현황</span></button>
+          </aside>
+          <div class="app-area">
+            <div class="status-strip">
+              <span><small>ROUND</small><b id="round-mini">01 / 10</b></span>
+              <span><small>가용 현금</small><b id="cash-mini">₩1,000,000</b></span>
+              <span><small>총자산</small><b id="net-mini">₩1,000,000</b></span>
+              <span class="strip-change"><small>이번 라운드</small><b id="change-mini">—</b></span>
+            </div>
+            <section class="window" id="trade-window">
+              <div class="window-title"><span><i class="title-led"></i> TERMINAL.EXE <span class="window-subtitle">— 종목 거래</span></span><button class="window-close" data-close="trade" aria-label="창 닫기">×</button></div>
+              <div class="window-body trade-layout">
+                <div class="company-panel"><div class="section-heading"><div><span class="eyebrow">WATCHLIST / 07</span><h1>시장 관찰</h1></div><span class="market-clock">LIVE <i></i></span></div><div class="company-list" id="company-list"></div><div class="coin-card"><div class="coin-emblem">₿</div><div class="coin-info"><strong>미드나잇 코인</strong><span>독립 변동 자산</span></div><div class="coin-price"><b id="coin-price">₩20,000</b><small>1 COIN</small></div></div></div>
+                <div class="detail-panel" id="stock-detail"></div>
+              </div>
+              <div class="window-footer"><span><i class="footer-led"></i> 시세는 라운드 종료 시 갱신됩니다</span><button class="end-round-button" id="end-round">라운드 마감 <span>↗</span></button></div>
+            </section>
+            <div class="toast" id="toast" role="status" aria-live="polite"></div>
+          </div>
+        </div>
+        <footer class="taskbar"><div class="taskbar-start"><span class="start-mark">N<span>·</span>M</span><span>NIGHT MARKET</span></div><div class="taskbar-open"><span class="taskbar-led"></span> TERMINAL.EXE</div><div class="taskbar-right"><span id="taskbar-round">ROUND 01</span><span class="taskbar-sep"></span><span id="clock">02:17</span></div></footer>
+      </div>
+      <div class="monitor-bottom"><span>◉</span><span>NIGHT MARKET</span><span class="monitor-control">◦ &nbsp; POWER</span></div>
+    </section>
+    <div class="desk"><div class="desk-line"></div><div class="keyboard"><div class="key-row"></div><div class="key-row"></div><div class="key-row"></div><div class="spacebar"></div></div><div class="mouse"><div class="mouse-wheel"></div><span class="mouse-wire"></span></div><div class="desk-caption">MAKE YOUR MOVE BEFORE THE CITY WAKES.</div></div>
+    <div class="room-foot"><span>NIGHT MARKET <span class="muted">— PAPER TRADING SIMULATION</span></span><span>NO SIGNAL. JUST INSTINCT.</span></div>
+  </main>
+
+  <div class="modal-backdrop hidden" id="modal-backdrop">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-titlebar"><span id="modal-kicker">TRADE CONFIRMATION</span><button id="modal-x" class="modal-x" aria-label="닫기">×</button></div>
+      <div id="modal-content"></div>
+      <div class="modal-actions" id="modal-actions"></div>
+    </section>
+  </div>
+</body>
+</html>

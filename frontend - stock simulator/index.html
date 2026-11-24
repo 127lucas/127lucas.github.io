@@ -27,6 +27,7 @@
         <div class="workspace">
           <aside class="desktop-rail" aria-label="프로그램 바로가기">
             <button class="desktop-icon active" data-open="trade"><span class="app-icon chart-icon">⌁</span><span>주식 거래</span></button>
+            <button class="desktop-icon" data-open="info-buy"><span class="app-icon asset-icon">◎</span><span>정보코인 구매</span></button>
             <button class="desktop-icon" data-open="news"><span class="app-icon news-icon">▤</span><span>뉴스 피드</span></button>
             <button class="desktop-icon" data-open="intel"><span class="app-icon intel-icon">◈</span><span>정보국</span></button>
             <button class="desktop-icon" data-open="effects"><span class="app-icon effect-icon">✳</span><span>특수 효과</span></button>
@@ -42,7 +43,7 @@
             <section class="window" id="trade-window">
               <div class="window-title"><span><i class="title-led"></i> TERMINAL.EXE <span class="window-subtitle">— 종목 거래</span></span><button class="window-close" data-close="trade" aria-label="창 닫기">×</button></div>
               <div class="window-body trade-layout">
-                <div class="company-panel"><div class="section-heading"><div><span class="eyebrow">WATCHLIST / 07</span><h1>시장 관찰</h1></div><span class="market-clock">LIVE <i></i></span></div><div class="company-list" id="company-list"></div><div class="coin-card"><div class="coin-emblem">₿</div><div class="coin-info"><strong>미드나잇 코인</strong><span>독립 변동 자산</span></div><div class="coin-price"><b id="coin-price">₩20,000</b><small>1 COIN</small></div></div></div>
+                <div class="company-panel"><div class="section-heading"><div><span class="eyebrow">WATCHLIST / 07</span><h1>시장 관찰</h1></div><span class="market-clock">LIVE <i></i></span></div><div class="company-list" id="company-list"></div><div class="coin-card" data-open="coin"><div class="coin-emblem">₿</div><div class="coin-info"><strong>정민코인</strong><span>독립 변동 자산 · 그래프 보기</span></div><div class="coin-price"><b id="coin-price">₩20,000</b><small>1 COIN</small></div></div></div>
                 <div class="detail-panel" id="stock-detail"></div>
               </div>
               <div class="window-footer"><span><i class="footer-led"></i> 시세는 라운드 종료 시 갱신됩니다</span><button class="end-round-button" id="end-round">라운드 마감 <span>↗</span></button></div>
